@@ -1,0 +1,17 @@
+{
+  "name": "github-custom-styles",
+  "version": "1.1.0",
+  "description": "github custom styles",
+  "main": "build.js",
+  "homepage": "https://github.com/roojay520/github-custom-styles",
+  "repository": "https://github.com/roojay520/github-custom-styles.git",
+  "author": "roojay <roojay520@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node build.js -d",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}

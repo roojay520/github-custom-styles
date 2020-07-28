@@ -2,9 +2,11 @@
 
 features:
 
-* Fixed content `max-width` to `1012px`
-* Change button `border-radius` to `4px`
-* Repository/Code files add bottom divider
+* Fixed content `max-width` to `1280px`;
+* Change button `border-radius` to `4px`;
+* Move right sidebar to top;
+* Custom repo stats navigation;
+* Fold & unfold repo files;
 
 ## Install
 
@@ -14,10 +16,10 @@ features:
 
 ## Preview
 
-Source page:
+old:
 
-![source](./images/source.png)
+![old](./images/source.png)
 
-New page :
+new:
 ![new](./images/new.png)
 ![new-issues](./images/new-issues.png)
