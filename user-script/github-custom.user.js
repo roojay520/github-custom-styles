@@ -3,7 +3,7 @@
 // @name         github-custom-styles
 // @namespace    github-custom-styles
 // @description  github custom styles
-// @version      1.1.0
+// @version      1.1.1
 // @author       roojay <roojay520@gmail.com>
 // @homepage     https://github.com/roojay520/github-custom-styles
 // @license      MIT
@@ -128,6 +128,10 @@ main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.s
   background: var(--bg-gray-light) !important;
 
   box-shadow: inset 0 -1px 0 var(--border-color);
+}
+
+#readme article.markdown-body.container-lg {
+  max-width: var(--width);
 }
 
 .IssueLabel,

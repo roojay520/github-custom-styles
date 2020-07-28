@@ -109,6 +109,10 @@ main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.s
   box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
+#readme article.markdown-body.container-lg {
+  max-width: var(--width);
+}
+
 .IssueLabel,
 .IssueLabel--big.lh-condensed {
   border-radius: 2px !important;
