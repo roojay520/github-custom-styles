@@ -45,7 +45,7 @@ const userScript = () => `
 fs.outputFile(distScript, userScript());
 
 if(process.argv.includes('-d')) {
-  fs.watch( path.join(__dirname, './src'), (event, filename)=> {
+  fs.watch( path.join(__dirname, './src'), (event, filename) => {
     if (filename && event === 'change') {
       console.log(`[${Date.now()}] ${srcStyle} updated`);
       fs.outputFile(distScript, userScript());

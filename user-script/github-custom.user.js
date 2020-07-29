@@ -3,7 +3,7 @@
 // @name         github-custom-styles
 // @namespace    github-custom-styles
 // @description  github custom styles
-// @version      1.1.1
+// @version      1.1.2
 // @author       roojay <roojay520@gmail.com>
 // @homepage     https://github.com/roojay520/github-custom-styles
 // @license      MIT
@@ -342,8 +342,26 @@ function main() {
   }, 500);
 };
 
-$(main);
+// fix repo stats not show when sub dir return to the root dir
+const observerFile = new MutationObserver(main);
+function observeRepoFile() {
+  const FILE_LIST_WRAPPER = '.repository-content .Box.mb-3';
+  const ajaxFiles = document.querySelector(FILE_LIST_WRAPPER);
+  if (ajaxFiles) {
+    observerFile.observe(ajaxFiles, {
+      childList: true,
+    });
+  }
+};
 
-$(document).on('pjax:end', main);
+const init = () => {
+  observeRepoFile();
+  main();
+}
+
+$(() => {
+  init()
+  $(document).on('pjax:end', init);
+});
 
 })();
