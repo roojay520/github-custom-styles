@@ -63,7 +63,7 @@ function renderFold() {
   });
   const li = $('<li>').addClass('link-gray ml-2').css('cursor', 'pointer').append(fold, unfold);
   const ul = $('<ul>').addClass('list-style-none d-flex').append(li);
-  const div = $('<div>').addClass('flex-shrink-0').append(ul);
+  const div = $('<div>').addClass('flex-shrink-0 fold-unfold').append(ul);
   return div;
 };
 
@@ -125,7 +125,7 @@ function main() {
   });
 
   // commits
-  const commits = $('#js-repo-pjax-container div.Box-header > div.js-details-container').children('div:last-child');
+  const commits = $('#js-repo-pjax-container div.Box-header > div.js-details-container').children('div:last-child:not(.fold-unfold)');
   const commitsLi = commits.find('ul.d-flex > li:first').removeClass().addClass('d-inline');
   commitsLi.find('.d-none').removeClass('d-none');
   commitsLi.children('a').removeClass('pl-3 pr-3 py-3 p-md-0 mt-n3 mb-n3 mr-n3 m-md-0').addClass('mr-3');
