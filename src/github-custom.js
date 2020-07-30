@@ -141,7 +141,10 @@ function main() {
   // localTime
   setTimeout(() => {
     const time = $('relative-time');
-    time.text(time.attr('title'));
+    if(time && time.length) {
+      $.each(time, (i, el) => $(el).text($(el).attr('title')))
+    }
+
   }, 500);
 };
 
