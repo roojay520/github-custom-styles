@@ -108,10 +108,17 @@ function main() {
     });
   });
 
+  // create or update repo stats
+  const aboutGridWrap = $('#repo-stats-info > div.BorderGrid').children('div.BorderGrid-row:first-child');
+  const repoStatsCellWrap = $('#repo-stats-info').find('#repo-stats-wrap');
+  if(repoStatsCellWrap && repoStatsCellWrap.length) {
+    repoStatsCellWrap.replace(renderRepoStats(repoStats));
+  } else {
+    aboutGridWrap.after(renderRepoStats(repoStats))
+  }
+
   // about
-  const aboutWrap = $('#repo-stats-info > div.BorderGrid > div.BorderGrid-row:first-child')
-    .after(renderRepoStats(repoStats))
-    .children('div.BorderGrid-cell');
+  const aboutWrap = aboutGridWrap.children('div.BorderGrid-cell');
   aboutWrap.children('h2').remove();
   const aboutInfo = aboutWrap.children('p:first-child');
   const aboutLink = aboutInfo.next();
@@ -136,7 +143,13 @@ function main() {
 
   // files fold & unfold
   const fileHeader = $('#js-repo-pjax-container  div.Box-header > div.js-details-container.Details')
-  fileHeader.append(renderFold());
+
+  const foldUnfoldWrap = fileHeader.find('.fold-unfold');
+  if(foldUnfoldWrap && foldUnfoldWrap.length) {
+    foldUnfoldWrap.replace(renderFold())
+  } else {
+    fileHeader.append(renderFold());
+  }
 
   // localTime
   setTimeout(() => {
