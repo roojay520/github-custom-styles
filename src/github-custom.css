@@ -61,12 +61,12 @@ main > div.container-xl.new-discussion-timeline.px3 {
   }
 }
 
-main > div.bg-gray-light.hide-full-screen {
+main > div.hide-full-screen {
   box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
 /* Repository title header */
-main > div.bg-gray-light.hide-full-screen > div:first-child {
+main > div.hide-full-screen > div:first-child {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
@@ -74,17 +74,17 @@ main > div.bg-gray-light.hide-full-screen > div:first-child {
 }
 
 /* Repository navigation tab */
-main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav {
+main > div.hide-full-screen > nav.js-repo-nav {
   margin: 0 auto;
   width: 100%;
   max-width: var(--max-width);
 }
 
-main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item {
+main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item {
   border-bottom: 2px solid transparent;
 }
 
-main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
+main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
   border-bottom-color: #f9826c;
 }
 
@@ -125,6 +125,7 @@ main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.s
 #repo-stats-info {
   padding: 8px 0;
   min-height: 100px;
+  margin-bottom: 16px;
 }
 
 #repo-stats-info .BorderGrid-row {
@@ -170,4 +171,13 @@ main > div.bg-gray-light.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.s
 
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+/* hide sidebar */
+main#js-repo-pjax-container .repository-content > div:first-child > div:last-child > div.col-md-3:nth-last-of-type(1) {
+  display: none;
+}
+
+#repo-content-pjax-container > div:first-child > div.gutter-condensed > div:first-child {
+  width: 100%;
 }
