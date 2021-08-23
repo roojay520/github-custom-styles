@@ -3,7 +3,7 @@
 // @name         github-custom-styles
 // @namespace    github-custom-styles
 // @description  github custom styles
-// @version      1.1.7
+// @version      1.1.8
 // @author       roojay <roojay520@gmail.com>
 // @homepage     https://github.com/roojay520/github-custom-styles
 // @license      MIT
