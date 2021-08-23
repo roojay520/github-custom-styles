@@ -293,7 +293,7 @@ function main() {
   // fix security page with
   $('#js-pjax-container > div.container-xl.clearfix.new-discussion-timeline.p-0').addClass('px-4 px-md-5 px-lg-6');
 
-  const repositoryMain = 'main#js-repo-pjax-container .repository-content > div:first-child > div:last-child';
+  const repositoryMain = '#repo-content-pjax-container.repository-content > div:last-child > div:last-child';
   const repositoryContent = $(`${repositoryMain} > div:first-child`).removeClass('col-md-9');
   const rightSidebar = $(`${repositoryMain} > div.col-md-3:nth-last-of-type(1)`)
     .removeClass('col-md-3').attr('id', 'repo-stats-info')
@@ -334,7 +334,7 @@ function main() {
   const aboutGridWrap = $('#repo-stats-info > div.BorderGrid').children('div.BorderGrid-row:first-child');
   const repoStatsCellWrap = $('#repo-stats-info').find('#repo-stats-wrap');
   if (repoStatsCellWrap && repoStatsCellWrap.length) {
-    repoStatsCellWrap.replace(renderRepoStats(repoStats));
+    $.isFunction(repoStatsCellWrap) && repoStatsCellWrap.replace(renderRepoStats(repoStats));
   } else {
     aboutGridWrap.after(renderRepoStats(repoStats));
   }
