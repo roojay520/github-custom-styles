@@ -80,7 +80,7 @@ function renderFold() {
 function main() {
   convertTime();
 
-  const isRepositoryPage = !!$('#repo-content-pjax-container > a.js-github-dev-shortcut').length;
+  const isRepositoryPage = !!$('#repo-content-pjax-container > a.js-github-dev-shortcut + div:not(.js-check-all-container)').length;
   if (!isRepositoryPage) return;
 
   const repositoryMain = '#repo-content-pjax-container.repository-content div.Layout';
