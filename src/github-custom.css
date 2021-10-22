@@ -63,6 +63,7 @@ main > div.container-xl.new-discussion-timeline.px3 {
 
 main > div.hide-full-screen {
   box-shadow: inset 0 -1px 0 var(--border-color);
+  margin-bottom: 16px !important;
 }
 
 /* Repository title header */
@@ -71,6 +72,7 @@ main > div.hide-full-screen > div:first-child {
   margin-left: auto;
   width: 100%;
   max-width: var(--max-width);
+  margin-bottom: 0 !important;
 }
 
 /* Repository navigation tab */
@@ -95,7 +97,7 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
 }
 
 .repository-content > div.gutter-condensed div.js-details-container.Details div.Box-row:not(:last-child) {
-  box-shadow: inset 0 -1px 0 0 rgba(227, 233, 237, .5);
+  box-shadow: inset 0 -1px 0 0 rgba(227, 233, 237, 0.5);
 }
 
 #js-repo-pjax-container .repository-content > div.gutter-condensed > div.col-md-3.flex-shrink-0:last-child {
@@ -162,7 +164,7 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
   border-radius: 0 0 4px 4px;
 }
 
-#repo-stats-wrap  .repo-stats-list {
+#repo-stats-wrap .repo-stats-list {
   display: flex;
 
   border: 1px solid var(--border-color);
@@ -180,4 +182,10 @@ main#js-repo-pjax-container .repository-content > div:first-child > div:last-chi
 
 #repo-content-pjax-container > div:first-child > div.gutter-condensed > div:first-child {
   width: 100%;
+}
+
+/* fix security page with */
+#repo-content-pjax-container > div.d-flex {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }

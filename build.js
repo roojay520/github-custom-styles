@@ -44,11 +44,12 @@ const userScript = () => `
 
 fs.outputFile(distScript, userScript());
 
-if(process.argv.includes('-d')) {
+if (process.argv.includes('-d')) {
   fs.watch( path.join(__dirname, './src'), (event, filename) => {
     if (filename && event === 'change') {
-      console.log(`[${Date.now()}] ${srcStyle} updated`);
+      const filePath = path.join(__dirname, './src', filename);
+      console.log(`[${Date.now()}] ${filePath} updated`);
       fs.outputFile(distScript, userScript());
     }
-  })
+  });
 }

@@ -84,6 +84,7 @@ main > div.container-xl.new-discussion-timeline.px3 {
 
 main > div.hide-full-screen {
   box-shadow: inset 0 -1px 0 var(--border-color);
+  margin-bottom: 16px !important;
 }
 
 /* Repository title header */
@@ -92,6 +93,7 @@ main > div.hide-full-screen > div:first-child {
   margin-left: auto;
   width: 100%;
   max-width: var(--max-width);
+  margin-bottom: 0 !important;
 }
 
 /* Repository navigation tab */
@@ -116,7 +118,7 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
 }
 
 .repository-content > div.gutter-condensed div.js-details-container.Details div.Box-row:not(:last-child) {
-  box-shadow: inset 0 -1px 0 0 rgba(227, 233, 237, .5);
+  box-shadow: inset 0 -1px 0 0 rgba(227, 233, 237, 0.5);
 }
 
 #js-repo-pjax-container .repository-content > div.gutter-condensed > div.col-md-3.flex-shrink-0:last-child {
@@ -183,7 +185,7 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
   border-radius: 0 0 4px 4px;
 }
 
-#repo-stats-wrap  .repo-stats-list {
+#repo-stats-wrap .repo-stats-list {
   display: flex;
 
   border: 1px solid var(--border-color);
@@ -201,6 +203,12 @@ main#js-repo-pjax-container .repository-content > div:first-child > div:last-chi
 
 #repo-content-pjax-container > div:first-child > div.gutter-condensed > div:first-child {
   width: 100%;
+}
+
+/* fix security page with */
+#repo-content-pjax-container > div.d-flex {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 `;
   if (typeof GM_addStyle !== 'undefined') {
@@ -290,13 +298,16 @@ function renderFold() {
 };
 
 function main() {
-  // fix security page with
-  $('#js-pjax-container > div.container-xl.clearfix.new-discussion-timeline.p-0').addClass('px-4 px-md-5 px-lg-6');
+  convertTime();
 
-  const repositoryMain = '#repo-content-pjax-container.repository-content > div:last-child > div:last-child';
-  const repositoryContent = $(`${repositoryMain} > div:first-child`).removeClass('col-md-9');
-  const rightSidebar = $(`${repositoryMain} > div.col-md-3:nth-last-of-type(1)`)
-    .removeClass('col-md-3').attr('id', 'repo-stats-info')
+  const isRepositoryPage = !!$('#repo-content-pjax-container > a.js-github-dev-shortcut').length;
+  if (!isRepositoryPage) return;
+
+  const repositoryMain = '#repo-content-pjax-container.repository-content div.Layout';
+  $(repositoryMain).css('--Layout-gutter', 0);
+  const repositoryContent = $(`${repositoryMain} > div.Layout-main`);
+  const rightSidebar = $(`${repositoryMain} > div.Layout-sidebar`)
+    .attr('id', 'repo-stats-info')
     .hide();
   rightSidebar.find('.BorderGrid--spacious').removeClass('BorderGrid--spacious');
   rightSidebar.find('.mt-3').removeClass('mt-3').addClass('mt-2');
@@ -372,7 +383,6 @@ function main() {
   } else {
     fileHeader.append(renderFold());
   }
-  convertTime();
 
 };
 

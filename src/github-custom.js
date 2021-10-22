@@ -78,13 +78,16 @@ function renderFold() {
 };
 
 function main() {
-  // fix security page with
-  $('#js-pjax-container > div.container-xl.clearfix.new-discussion-timeline.p-0').addClass('px-4 px-md-5 px-lg-6');
+  convertTime();
 
-  const repositoryMain = '#repo-content-pjax-container.repository-content > div:last-child > div:last-child';
-  const repositoryContent = $(`${repositoryMain} > div:first-child`).removeClass('col-md-9');
-  const rightSidebar = $(`${repositoryMain} > div.col-md-3:nth-last-of-type(1)`)
-    .removeClass('col-md-3').attr('id', 'repo-stats-info')
+  const isRepositoryPage = !!$('#repo-content-pjax-container > a.js-github-dev-shortcut').length;
+  if (!isRepositoryPage) return;
+
+  const repositoryMain = '#repo-content-pjax-container.repository-content div.Layout';
+  $(repositoryMain).css('--Layout-gutter', 0);
+  const repositoryContent = $(`${repositoryMain} > div.Layout-main`);
+  const rightSidebar = $(`${repositoryMain} > div.Layout-sidebar`)
+    .attr('id', 'repo-stats-info')
     .hide();
   rightSidebar.find('.BorderGrid--spacious').removeClass('BorderGrid--spacious');
   rightSidebar.find('.mt-3').removeClass('mt-3').addClass('mt-2');
@@ -160,7 +163,6 @@ function main() {
   } else {
     fileHeader.append(renderFold());
   }
-  convertTime();
 
 };
 
