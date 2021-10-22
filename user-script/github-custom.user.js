@@ -210,6 +210,15 @@ main#js-repo-pjax-container .repository-content > div:first-child > div:last-chi
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* fix pr checks */
+#repository-container-header + .container-xl {
+  max-width: var(--max-width);
+}
+
+#js-report-pull-request-refresh + .mt-4 {
+  margin-top: 0 !important;
+}
 `;
   if (typeof GM_addStyle !== 'undefined') {
     GM_addStyle(styles);
