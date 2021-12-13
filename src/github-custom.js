@@ -139,8 +139,13 @@ function main() {
   aboutLink.remove();
   const readmeAndLicense = aboutWrap.find('div.mt-2 > a');
   readmeAndLicense.find('svg.mr-2').removeClass('mr-2').addClass('text-gray');
+  // remove watch/star/fork
+  const removeStats = ['octicon-eye', 'octicon-repo-forked', 'octicon-star']
   $.each(readmeAndLicense, (i, el) => {
     const li = $('<li>').addClass('d-inline').append(el);
+    const classList =  el.firstElementChild.classList;
+    const isRemove = removeStats.some((item) => [...classList].includes(item));
+    if(isRemove) return;
     $('#repo-stats-wrap > .repo-stats-list').append(li);
   });
 

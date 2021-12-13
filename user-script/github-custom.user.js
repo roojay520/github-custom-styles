@@ -196,6 +196,10 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
   justify-content: space-between;
 }
 
+#repo-stats-wrap .repo-stats-list  .d-inline > .Link--muted {
+  margin-right: 16px;
+}
+
 /* hide sidebar */
 main#js-repo-pjax-container .repository-content > div:first-child > div:last-child > div.col-md-3:nth-last-of-type(1) {
   display: none;
@@ -368,8 +372,13 @@ function main() {
   aboutLink.remove();
   const readmeAndLicense = aboutWrap.find('div.mt-2 > a');
   readmeAndLicense.find('svg.mr-2').removeClass('mr-2').addClass('text-gray');
+  // remove watch/star/fork
+  const removeStats = ['octicon-eye', 'octicon-repo-forked', 'octicon-star']
   $.each(readmeAndLicense, (i, el) => {
     const li = $('<li>').addClass('d-inline').append(el);
+    const classList =  el.firstElementChild.classList;
+    const isRemove = removeStats.some((item) => [...classList].includes(item));
+    if(isRemove) return;
     $('#repo-stats-wrap > .repo-stats-list').append(li);
   });
 

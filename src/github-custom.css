@@ -175,6 +175,10 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
   justify-content: space-between;
 }
 
+#repo-stats-wrap .repo-stats-list  .d-inline > .Link--muted {
+  margin-right: 16px;
+}
+
 /* hide sidebar */
 main#js-repo-pjax-container .repository-content > div:first-child > div:last-child > div.col-md-3:nth-last-of-type(1) {
   display: none;
