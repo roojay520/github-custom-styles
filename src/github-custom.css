@@ -86,10 +86,6 @@ main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item {
   border-bottom: 2px solid transparent;
 }
 
-main > div.hide-full-screen > nav.js-repo-nav .UnderlineNav-item.selected {
-  border-bottom-color: #f9826c;
-}
-
 .repository-content > div.gutter-condensed > div.flex-shrink-0:first-child:not(.col-3):not(.col-md-3) {
   margin-top: 16px;
   width: 100%;
